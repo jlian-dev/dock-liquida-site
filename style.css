@@ -28,6 +28,56 @@ body {
 .stage-lilac { background: #b6b7d2; }
 .settings-stage { background: #171f30; border-color: #a6c4ff26; }
 .settings-orbit { border-color: #a6c4ff33; }
+
+/* Animações mais suaves */
+@keyframes dock-entrada-suave {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes glass-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-revealed {
+    animation: dock-entrada-suave .55s
+      cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .faq-list details[open] > .faq-answer,
+  .beta-panel[open] > .beta-content,
+  .news-notes[open] > .notes-content,
+  .news-dialog[open] {
+    animation: dock-entrada-suave .28s ease-out both;
+  }
+
+  .news-bell:active,
+  .news-close:active,
+  .apk-download:active {
+    transform: scale(.97);
+  }
+}
+
+/* Alivia a rolagem em telas de toque */
+@media (hover: none) and (pointer: coarse) {
+  .stage-peach .phone,
+  .stage-mint .phone,
+  .stage-lilac .phone {
+    animation: none;
+  }
+
+  .feature-card.scroll-revealed {
+    animation-delay: 0s;
+  }
+}
 .release-panel { background: #111a27b3; }
 .apk-row { border-color: #b6caff24; }
 .apk-row.is-latest { background: #7eacf512; border-color: #b6d0ff55; }
