@@ -433,93 +433,55 @@ body:has(.news-dialog[open]) { overflow: hidden; }
 @media (max-width:380px) { .top-actions .nav-github { font-size: 0; gap: 0; width: 44px; } .top-actions .nav-github svg { width: 18px; } }
 @media (prefers-reduced-motion:reduce) { .news-bell,.faq-list summary > span { transition: none; } }
 
-.hero-content h1 {
-  font-size: clamp(44px, 8.4vw, 118px);
-  line-height: .96;
-  letter-spacing: -.075em;
+/* Acabamento Liquid Glass */
+:root {
+  --glass-surface: linear-gradient(150deg, #b6ceff12, #7c9ed407), #141d2c;
+  --glass-edge: #bbd1ff2e;
+  --glass-reflection: inset 0 1px 0 #eff5ff26;
 }
 
-.hero-content h1 em {
-  color: #c8d9ff;
+.top > .brand,
+.top > nav,
+.top-actions .nav-github,
+.news-bell,
+.download-strip,
+.mini-cta,
+.refresh-releases {
+  background: var(--glass-surface);
+  border-color: var(--glass-edge);
+  box-shadow: var(--glass-reflection), 0 6px 18px #03081526;
 }
 
-.hero-description {
-  max-width: 34ch;
-  margin: 24px auto 0;
-  font-size: clamp(16px, 1.7vw, 19px);
-  line-height: 1.6;
+.release-panel,
+.beta-panel,
+.faq-list > details {
+  background: var(--glass-surface);
+  border-color: var(--glass-edge);
+  box-shadow: var(--glass-reflection), 0 12px 30px #03081530;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.hero-actions a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  padding: 10px 18px;
-  border: 1px solid #b9ceff48;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.hero-download {
-  color: #101a2c;
-  background: #d9e6ff;
-  box-shadow: inset 0 1px #fff, 0 8px 24px #02071140;
-}
-
-.hero-preview {
-  color: #e9f0ff;
-  background: #d7e4ff12;
-}
-
-.hero-actions a:focus-visible {
-  outline: 2px solid #d1deff;
-  outline-offset: 4px;
-}
-
-.stage-peach {
-  background: radial-gradient(ellipse at 25% 0, #657da6, #253650 68%);
-}
-
-.stage-mint {
-  background: radial-gradient(ellipse at 50% 0, #597c88, #233b46 68%);
-}
-
-.stage-lilac {
-  background: radial-gradient(ellipse at 80% 0, #756b9b, #352c4e 68%);
-}
-
-.stage-tag {
-  color: #eff4ff;
+.apk-row {
+  background: #a4bcf008;
+  border-color: #b6caff20;
 }
 
 .apk-row.is-latest {
-  background: #a9c4ff16;
-  border-color: #b6d0ff66;
+  background: linear-gradient(145deg, #a9c4ff1f, #a9c4ff0a);
+  border-color: #b6d0ff60;
 }
 
-@media (max-width: 700px) {
-  .hero {
-    min-height: auto;
-  }
+.hero-orb {
+  background: radial-gradient(
+    ellipse at 72% 14%,
+    #647ba8 0%,
+    #334764 30%,
+    #202b42 64%,
+    #161e2e 84%
+  );
+  box-shadow: inset 0 1px 1px #e1edff38, 0 0 64px #527eb21c;
+}
 
-  .hero-content {
-    padding-block: 64px 54px;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(44px, 11.4vw, 72px);
-  }
-
-  .apk-download {
-    min-height: 44px;
-  }
+.shot-stage {
+  border: 1px solid #e5edff30;
+  box-shadow: var(--glass-reflection), 0 14px 32px #03081540;
 }
