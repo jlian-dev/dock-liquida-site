@@ -211,3 +211,31 @@ featureSteps.forEach(button => {
     document.getElementById('feature-caption').textContent = featureCaptions[index];
   });
 });
+
+// Um painel de downloads, com abas acessíveis por toque e teclado.
+const channelTabs = [...document.querySelectorAll('.release-tabs [role="tab"]')];
+function selectReleaseChannel(beta, focus = false) {
+  channelTabs.forEach((tab, index) => {
+    const selected = index === (beta ? 1 : 0);
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+    if (selected && focus) tab.focus();
+  });
+}
+channelTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => selectReleaseChannel(index === 1));
+  tab.addEventListener('keydown', event => {
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+    event.preventDefault();
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? 1 : 1 - index;
+    selectReleaseChannel(next === 1, true);
+  });
+});
+function syncReleaseHash() {
+  if (location.hash === '#betas') selectReleaseChannel(true);
+  else if (location.hash === '#versoes') selectReleaseChannel(false);
+}
+window.addEventListener('hashchange', syncReleaseHash);
+document.querySelectorAll('a[href="#betas"]').forEach(link => link.addEventListener('click', () => selectReleaseChannel(true)));
+syncReleaseHash();

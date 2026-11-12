@@ -1,9 +1,9 @@
-# Dock Líquida — capturas atualizadas
+# Dock Líquida — wallpapers e abas
 
-Envie o conteúdo desta pasta à raiz do repositório do site, substituindo os arquivos existentes. Mantenha assets ao lado de index.html.
+Substitua os arquivos do site pelo conteúdo deste pacote, mantendo assets ao lado de index.html.
 
-As capturas anteriores foram substituídas por cinco imagens novas: Início, Galeria, Auto, Editor Base e Editor Dock. A interface foi recolorida em azul apenas nas imagens de apresentação. FAQ, sininho, versões finais, betas, contadores e changelogs foram preservados.
+As cinco capturas agora usam wallpapers abstratos e interface azul. Estável e Beta ficam no mesmo painel com abas separadas. Downloads, contadores, changelogs, FAQ e novidades foram mantidos.
 
-Remova assets/app-settings.png do repositório, se ainda existir: ela não é mais utilizada. Nenhuma configuração de Vercel é necessária.
+Remova assets/app-settings.png, se ainda existir no repositório: não é utilizada.
 
-Após o GitHub Pages publicar, recarregue com Ctrl+F5 e confira as cinco imagens, o FAQ, o sininho e a lista de versões no celular e no computador.
+Após publicar no GitHub Pages, atualize com Ctrl+F5. Confira as cinco imagens, alterne Estável/Beta e abra as notas de uma versão. As abas também respondem às setas do teclado, Home e End. O link do FAQ para as betas abre a aba correspondente.
