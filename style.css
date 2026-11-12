@@ -28,56 +28,6 @@ body {
 .stage-lilac { background: #b6b7d2; }
 .settings-stage { background: #171f30; border-color: #a6c4ff26; }
 .settings-orbit { border-color: #a6c4ff33; }
-
-/* Animações mais suaves */
-@keyframes dock-entrada-suave {
-  from {
-    opacity: 0;
-    translate: 0 10px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-
-@keyframes glass-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .scroll-revealed {
-    animation: dock-entrada-suave .55s
-      cubic-bezier(.22, 1, .36, 1) both;
-  }
-
-  .faq-list details[open] > .faq-answer,
-  .beta-panel[open] > .beta-content,
-  .news-notes[open] > .notes-content,
-  .news-dialog[open] {
-    animation: dock-entrada-suave .28s ease-out both;
-  }
-
-  .news-bell:active,
-  .news-close:active,
-  .apk-download:active {
-    transform: scale(.97);
-  }
-}
-
-/* Alivia a rolagem em telas de toque */
-@media (hover: none) and (pointer: coarse) {
-  .stage-peach .phone,
-  .stage-mint .phone,
-  .stage-lilac .phone {
-    animation: none;
-  }
-
-  .feature-card.scroll-revealed {
-    animation-delay: 0s;
-  }
-}
 .release-panel { background: #111a27b3; }
 .apk-row { border-color: #b6caff24; }
 .apk-row.is-latest { background: #7eacf512; border-color: #b6d0ff55; }
@@ -433,55 +383,15 @@ body:has(.news-dialog[open]) { overflow: hidden; }
 @media (max-width:380px) { .top-actions .nav-github { font-size: 0; gap: 0; width: 44px; } .top-actions .nav-github svg { width: 18px; } }
 @media (prefers-reduced-motion:reduce) { .news-bell,.faq-list summary > span { transition: none; } }
 
-/* Acabamento Liquid Glass */
-:root {
-  --glass-surface: linear-gradient(150deg, #b6ceff12, #7c9ed407), #141d2c;
-  --glass-edge: #bbd1ff2e;
-  --glass-reflection: inset 0 1px 0 #eff5ff26;
-}
-
-.top > .brand,
-.top > nav,
-.top-actions .nav-github,
-.news-bell,
-.download-strip,
-.mini-cta,
-.refresh-releases {
-  background: var(--glass-surface);
-  border-color: var(--glass-edge);
-  box-shadow: var(--glass-reflection), 0 6px 18px #03081526;
-}
-
-.release-panel,
-.beta-panel,
-.faq-list > details {
-  background: var(--glass-surface);
-  border-color: var(--glass-edge);
-  box-shadow: var(--glass-reflection), 0 12px 30px #03081530;
-}
-
-.apk-row {
-  background: #a4bcf008;
-  border-color: #b6caff20;
-}
-
-.apk-row.is-latest {
-  background: linear-gradient(145deg, #a9c4ff1f, #a9c4ff0a);
-  border-color: #b6d0ff60;
-}
-
-.hero-orb {
-  background: radial-gradient(
-    ellipse at 72% 14%,
-    #647ba8 0%,
-    #334764 30%,
-    #202b42 64%,
-    #161e2e 84%
-  );
-  box-shadow: inset 0 1px 1px #e1edff38, 0 0 64px #527eb21c;
-}
-
-.shot-stage {
-  border: 1px solid #e5edff30;
-  box-shadow: var(--glass-reflection), 0 14px 32px #03081540;
+/* Novas capturas: a barra do sistema já foi removida nas imagens. */
+.phone img, .settings-screen img { margin-top: 0; display: block; }
+.phone { aspect-ratio: auto; }
+.editor-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; align-items: start; }
+.settings-stage { padding: 40px 22px 65px; height: auto; max-height: none; }
+.editor-pair .settings-screen { width: 100%; max-width: 100%; transform: none; aspect-ratio: auto; border-radius: 20px; }
+.editor-base { margin-top: 32px; }
+@media (max-width:700px) {
+  .settings-stage { padding: 22px 16px 55px; }
+  .editor-pair { gap: 10px; }
+  .editor-pair .settings-screen { border-radius: 14px; }
 }
